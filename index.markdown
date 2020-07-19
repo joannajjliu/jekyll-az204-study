@@ -4,7 +4,7 @@
 
 layout: home
 ---
-### The AZ-204 Developing Solutions for Microsoft Azure exam is split into five sections:
+The AZ-204 Developing Solutions for Microsoft Azure exam is split into five sections:
 
 [Develop Azure Compute Solutions (25 - 30%)](/az-204-notes/develop-azure-compute-solutions/)
 
