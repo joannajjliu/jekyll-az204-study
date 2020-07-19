@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   AZ 204 study notes created by our study group.
   Includes code snippets and useful explanations.
 baseurl: "/az-204-notes" # the subpath of your site, e.g. /blog
-url: "localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
+url: "joannajjliu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: joannajjliu
 
 # Build settings
