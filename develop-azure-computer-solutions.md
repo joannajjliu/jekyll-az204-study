@@ -192,52 +192,53 @@ permalink: /develop-azure-compute-solutions/
 Azure App Service Web Apps enables building and hosting of web apps in the programming language of your choice (ASP.NET Core, ASP.NET, Node.JS, PHP, Java) without managing infrastructure. Also offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from Github, Azure DevOps, and any Git repo.
 
 - Create an Azure App Service Web App
-	+ Create an Azure App Service Web app, consisting of two containers, configured using a Docker Compose file (docker-compose.yml), using Azure CLI:
+    * Create an Azure App Service Web app, consisting of two containers, configured using a Docker Compose file (docker-compose.yml), using Azure CLI:
+
 	```
-	az webapp create --resource-group blogResourceGroup \
-	--plan blogServicePlan \
-	--name blog \
-	#web uses a Docker Compose file for application configuration:
-	--multicontainer-config-type compose \
-	--multicontainer-config-file docker-compose.yml
+		az webapp create --resource-group blogResourceGroup \
+		--plan blogServicePlan \
+		--name blog \
+		#web uses a Docker Compose file for application configuration:
+		--multicontainer-config-type compose \
+		--multicontainer-config-file docker-compose.yml
 	```
-	
+
 	* Other commands:
+
 	```
-	#use a Kubernetes deployment file as the application configuration
-	--multicontainer-config-type kube
-	
-	#create container web app, using the default
-	#  PHP image from Docker Hub
-	--docker-custom-image-name php:apache-7
-	```
+		#use a Kubernetes deployment file as the application configuration
+		--multicontainer-config-type kube
 		
-
-	+ Create an Azure App Service app with deployment from Github, using Azure CLI
+		#create container web app, using the default
+		#  PHP image from Docker Hub
+		--docker-custom-image-name php:apache-7
 	```
-	# specify github repo
-	gitrepo=https://github.com/company1/aspnetcoreapp1
-	
-	# create resource group, group1
-	az group create --location centralus --name group1
-	
-	# create the linux App Service plan in rg group1, 
-	# --sku S1 specifies the Standard pricing tier, and a small VM
-	az appservice plan create --name linux-service-plan \
-	--resource-group group1 --is-linux --sku S1
-	
-	# Create the App Service app in linux service plan
-	az webapp create --name application1 -- resource-group group1 \
-	--plan linux-service-plan
+	* Create an Azure App Service app with deployment from Github, using Azure CLI
 
-	# Deploy the code from the github repo to application1. --manual-integration performs a one time deploy (without enabling auto syc between source control and the App Service)
-	az webapp deployment source config --name application1 --resource-group group1 \
-	--repo-url $gitrepo --branch master --manual-integration
-	
+	```
+		# specify github repo
+		gitrepo=https://github.com/company1/aspnetcoreapp1
+		
+		# create resource group, group1
+		az group create --location centralus --name group1
+		
+		# create the linux App Service plan in rg group1, 
+		# --sku S1 specifies the Standard pricing tier, and a small VM
+		az appservice plan create --name linux-service-plan \
+		--resource-group group1 --is-linux --sku S1
+		
+		# Create the App Service app in linux service plan
+		az webapp create --name application1 -- resource-group group1 \
+		--plan linux-service-plan
+
+		# Deploy the code from the github repo to application1. --manual-integration performs a one time deploy (without enabling auto syc between source control and the App Service)
+		az webapp deployment source config --name application1 --resource-group group1 \
+		--repo-url $gitrepo --branch master --manual-integration
 	```
 	+ Remove Resource group and all associated resources:
+
 	```
-	az group delete --name myResourceGroup
+		az group delete --name myResourceGroup
 	```
 - Enable diagnostics logging
 	+ **AppServiceAppLogs under Diagnostic settings**: exceptions and/or logs written by the application to the environment's logging utility.
