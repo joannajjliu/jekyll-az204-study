@@ -250,29 +250,29 @@ Azure App Service Web Apps enables building and hosting of web apps in the progr
 - Deploy code to a web app
 	+ Create a web app, myCompanyApp1, and deploy the app to a deployment slot, StagingSlot:
 	```
-	gitRepo = "https://github.com/myCompanyApp1/"
-	
-	appPlan = "myCompanyAppPlan1"
-	
-	appName = "myCompanyWebApp1"
-	
-	slotName = "StagingSlot"
-	
-	rgName = "myCompanyResourceGroup"
+		gitRepo = "https://github.com/myCompanyApp1/"
+		
+		appPlan = "myCompanyAppPlan1"
+		
+		appName = "myCompanyWebApp1"
+		
+		slotName = "StagingSlot"
+		
+		rgName = "myCompanyResourceGroup"
 
-	
-	az group create --location centralus --name $rgName
-	
-	az appservice plan create --name $appPlan --resource-group $rgName -sku P3V2
-	
-	# automatically creates a slot for the production app
-	az webapp create --name $appName --resource-group $rgName --plan $appPlan
-	
-	# create another slot, "StagingSlot" for testing
-	az webapp deployment slot create --name $appName --resource-group $rgName --slot $slotName
-	
-	az webapp deployment source config --name $appName --resource-group $rgName --slot $slotName \
-		--repo-url $gitRepo --branch master --manual-integration
+		
+		az group create --location centralus --name $rgName
+		
+		az appservice plan create --name $appPlan --resource-group $rgName -sku P3V2
+		
+		# automatically creates a slot for the production app
+		az webapp create --name $appName --resource-group $rgName --plan $appPlan
+		
+		# create another slot, "StagingSlot" for testing
+		az webapp deployment slot create --name $appName --resource-group $rgName --slot $slotName
+		
+		az webapp deployment source config --name $appName --resource-group $rgName --slot $slotName \
+			--repo-url $gitRepo --branch master --manual-integration
 	```
 - Configure web app settings including SSL, API, and connection strings
  	+ `New-AzRoleAssignment`: Configure web app 'contribute' members to a security principal, based on RBAC.
@@ -339,18 +339,20 @@ Azure App Service Web Apps enables building and hosting of web apps in the progr
 				+ SharedCode folder stores shared code
 				+ bin folder contains packages and library files that the function app uses
 				+ host.json, and function.json files can be edited in the Azure portal's function editor (for small changes). Best practice, and for larger changes, is to use a local development tool, like VS Code.
+  
 				```
-				FunctionApp
-				- host.json
-				- MyFirstFunction
-					- function.json
-					- ...
-				- MySecondFunction
-					- function.json
-					- ...
-				- SharedCode
-				- bin
+					FunctionApp
+					- host.json
+					- MyFirstFunction
+						- function.json
+						- ...
+					- MySecondFunction
+						- function.json
+						- ...
+					- SharedCode
+					- bin
 				```
+
 		* Four durable function types in Azure Functions: activity, orchestrator, entity, and client
 		1. Orchestrator: How actions are executed and the order in which they are executed
 		2. Activity: The basic unit of work in a durable function orchestration; they are the functions and tasks orchestrated in the process.
