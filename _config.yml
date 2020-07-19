@@ -23,7 +23,7 @@ email: joanna_liu@live.ca
 description: >- # this means to ignore newlines until "baseurl:"
   AZ 204 study notes created by our study group.
   Includes code snippets and useful explanations.
-baseurl: "/az-204-notes" # the subpath of your site, e.g. /blog
+baseurl: "/jekyll-az204-study" # the subpath of your site, e.g. /blog
 url: "joannajjliu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: joannajjliu
 
