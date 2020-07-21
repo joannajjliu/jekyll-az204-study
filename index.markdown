@@ -8,7 +8,7 @@ The AZ-204 Developing Solutions for Microsoft Azure exam is split into five sect
 
 [Develop Azure Compute Solutions (25 - 30%)](/jekyll-az204-study/develop-azure-compute-solutions/)
 
-Develop for Azure storage (10-15%)
+[Develop for Azure storage (10-15%)](/jekyll-az204-study/develop-azure-storage/)
 
 Implement Azure security (15-20%)
 

@@ -3,8 +3,7 @@ layout: page
 title: Develop Azure Compute Solutions
 permalink: /develop-azure-compute-solutions/
 ---
-# AZ-204 Developing Solutions for MS Azure
-## Develop Azure Compute Solutions (25 - 30%)
+##  (25 - 30%)
 ### Implement IaaS Solutions
 - Provision VMs
 	+ Generalizing a VM:
@@ -303,6 +302,7 @@ Azure App Service Web Apps enables building and hosting of web apps in the progr
 		```
 		- ASP.NET apps only: use `HttpRequestdest.ClientCertificate` property
 		- Node.JS and other apps: certificate is passed through the HTTPS request header (as a base64-encoded X-ARR-ClientCert header/PEM string)
+
 	+ Client cookie: contains information passed to the client for local storage
 
 
