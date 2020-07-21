@@ -62,6 +62,7 @@ permalink: /develop-azure-storage/
 - Implement data archiving and retention
   - To implement data archiving in Azure Blob Storage using access tiers and storage lifecycle, the Azure Storage Account must be upgraded to **General Purpose v2 (GPv2)**. This can also be done by converting an existing GPv1 to GPv2, through the Azure portal.
   - Blob leasing: prevents blob from being deleted or overwritten. Example: prevent the 2019.pdf blob from being deleted or overwritten for one minute (60 seconds), using comp query string set to lease,
+
   ```
   PUT https://company1.blob.core.windows.net/taxreturns/2019.pdf?comp=lease HTTP/1.1
 
